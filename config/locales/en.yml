@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  
+en:
+  helpers:
+    submit:
+      article:
+        create: "Submit Article"
+        update: "Update Article"
