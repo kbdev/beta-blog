@@ -17,6 +17,12 @@ $navbar-default-bg: black;
     text-decoration: none;
 }
 
+.message {
+    list-style-image: url('icon_redX.png');
+    font-weight: bold;
+    text-align: left;
+}
+
 .center {
     text-align: center;
 }
