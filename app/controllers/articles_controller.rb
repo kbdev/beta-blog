@@ -2,15 +2,17 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy]
   
   def index
+    @title = "All Articles"
     @articles = Article.all
   end
   
   def new
-      @article = Article.new
+    @title = "New Article"
+    @article = Article.new
   end
   
   def edit
-    
+    @title = "Edit #{@article.title}"
   end
   
   def create
@@ -19,6 +21,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article was successfully created"
       redirect_to article_path(@article)
     else
+      @title = 'New Article'
       render 'new'
     end
   end
@@ -29,12 +32,13 @@ class ArticlesController < ApplicationController
       flash[:success] = "Article was successfully updated!"
       redirect_to article_path(@article)
     else
+      @title = "Edit #{@article.title}"
       render 'edit'
     end
   end
     
   def show
-    
+    @title = "#{@article.title}"
   end
   
   def destroy
