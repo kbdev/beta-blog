@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+  
   def new
     @title = "Signup"
     @user = User.new
@@ -8,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Welcome to the beta blog, #{@user.username}!"
-      redirect_to articles_path
+      redirect_to user_path(@user)
     else
       @title = "Signup"
       render 'new'
@@ -33,6 +37,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @title = @user.username
   end
   
   private
